@@ -4,8 +4,10 @@ pipeline {
         stage('Example') {
             steps {
                 echo 'Hello World'
-                def dockerfile = 'Dockerfile-prod'
-                def customImage = docker.build("sample:prod", "-f ${dockerfile} .")
+                script {
+                    def dockerfile = 'Dockerfile-prod'
+                    def customImage = docker.build("sample:prod", "-f ${dockerfile} .")
+                }
             }
         }
     }
