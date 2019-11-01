@@ -4,7 +4,8 @@ pipeline {
         stage('Example') {
             steps {
                 echo 'Hello World'
-                docker build -f Dockerfile-prod -t sample:prod
+                def dockerfile = 'Dockerfile-prod'
+                def customImage = docker.build("sample:prod", "-f ${dockerfile} .")
             }
         }
     }
