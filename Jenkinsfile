@@ -4,6 +4,7 @@ pipeline {
         stage('Example') {
             steps {
                 echo 'Hello World'
+                docker build -f Dockerfile-prod -t sample:prod
             }
         }
     }
