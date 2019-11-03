@@ -2,9 +2,6 @@ pipeline {
     agent any
     stages {
         stage('Example') {
-            environment {
-                SERVICE_CREDS = credentials('4f8b6b5b-f947-44e2-a179-66da58ca5cfa')
-            }
             steps {
                 withDockerRegistry([ credentialsId: "14d0924a-5ae0-4e89-9eff-65280d569d34", url: "" ]) {
                     sh 'docker build -f Dockerfile-prod -t phemox/repo:react-prod .'
